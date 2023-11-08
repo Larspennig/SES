@@ -248,9 +248,6 @@ def main():
         .apply(lambda x: list(x)).reset_index()
     merge2insee = pd.merge(merge2insee_id, merge2insee_geom, on="aerial_par")
 
-    with open('merge2insee.pkl', 'rb') as f:
-        merge2insee = pickle.load(f)
-
     # Extract all census cell images from each tile
     extract_labelled_aerial_imagery(merge2insee)
 
